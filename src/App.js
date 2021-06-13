@@ -31,8 +31,22 @@ class App extends Component {
       number: number,
     };
 
+    this.setState(({ contacts }) => {
+      for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i].name.toLowerCase() === contact.name.toLowerCase()) {
+          return alert(`${contact.name} is already in contacts`);
+        }
+      }
+
+      return {
+        contacts: [...contacts, contact],
+      };
+    });
+  };
+
+  removeContact = (idToCompare) => {
     this.setState(({ contacts }) => ({
-      contacts: [...contacts, contact],
+      contacts: contacts.filter(({ id }) => id !== idToCompare),
     }));
   };
 
@@ -50,7 +64,10 @@ class App extends Component {
 
         <h2>Contacts</h2>
         <Filter value={filter} onFilter={this.handleChange} />
-        <ContactList contacts={filteredContacts} />
+        <ContactList
+          contacts={filteredContacts}
+          onDelete={this.removeContact}
+        />
       </>
     );
   }
