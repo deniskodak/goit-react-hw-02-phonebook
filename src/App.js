@@ -59,10 +59,14 @@ class App extends Component {
 
     return (
       <>
-        <h1>Phonebook</h1>
+        <h1 style={{ marginLeft: 30, marginTop: 0, marginBottom: 0 }}>
+          Phonebook
+        </h1>
         <ContactForm onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
+        <h2 style={{ marginLeft: 30, marginTop: 0, marginBottom: 0 }}>
+          Contacts
+        </h2>
         <Filter value={filter} onFilter={this.handleChange} />
         <ContactList
           contacts={filteredContacts}

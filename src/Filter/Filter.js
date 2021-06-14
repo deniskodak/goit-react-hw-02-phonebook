@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Label, Input } from "./styled";
 
 const Filter = ({ value, onFilter }) => (
-  <label>
-    <input
+  <Label>
+    {" "}
+    Find contacts by name
+    <Input
       type="text"
       name="filter"
       value={value}
       autoComplete="off"
       onChange={onFilter}
     />
-  </label>
+  </Label>
 );
 
 Filter.propTypes = {

@@ -1,16 +1,17 @@
 import React from "react";
 import Contact from "../Contact";
 import PropTypes from "prop-types";
+import { Ul } from "./styled";
 
 const ContactList = ({ contacts, onDelete }) => {
   return (
-    <ul>
+    <Ul>
       {contacts.map((contact) => {
         return (
           <Contact key={contact.id} contact={contact} onDelete={onDelete} />
         );
       })}
-    </ul>
+    </Ul>
   );
 };
 
