@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { Li, Button } from "./styled";
 
 const Contact = ({ contact, onDelete }) => {
-  const { id, name, number } = contact;
+  const { name, number } = contact;
   return (
     <Li>
       {name}: {number}
-      <Button type="button" onClick={() => onDelete(id)}>
+      <Button type="button" onClick={onDelete}>
         X
       </Button>
     </Li>

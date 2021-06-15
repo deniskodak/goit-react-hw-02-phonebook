@@ -7,8 +7,9 @@ const ContactList = ({ contacts, onDelete }) => {
   return (
     <Ul>
       {contacts.map((contact) => {
+        const { id } = contact;
         return (
-          <Contact key={contact.id} contact={contact} onDelete={onDelete} />
+          <Contact key={id} contact={contact} onDelete={() => onDelete(id)} />
         );
       })}
     </Ul>
