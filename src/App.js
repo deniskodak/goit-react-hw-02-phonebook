@@ -24,6 +24,11 @@ class App extends Component {
     }));
   };
 
+  findContact = (array, name) => {
+    return array.some(
+      (oldContact) => oldContact.name.toLowerCase() === name.toLowerCase()
+    );
+  };
   addContact = (name, number) => {
     const contact = {
       id: uuidv4(),
@@ -32,10 +37,10 @@ class App extends Component {
     };
 
     this.setState(({ contacts }) => {
-      for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i].name.toLowerCase() === contact.name.toLowerCase()) {
-          return alert(`${contact.name} is already in contacts`);
-        }
+      const existContact = this.findContact(contacts, contact.name);
+
+      if (existContact) {
+        return alert(`${contact.name} is already in contacts`);
       }
 
       return {
