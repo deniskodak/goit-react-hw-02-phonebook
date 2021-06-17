@@ -36,17 +36,13 @@ class App extends Component {
       number: number,
     };
 
-    this.setState(({ contacts }) => {
-      const existContact = this.findContact(contacts, contact.name);
+    const existContact = this.findContact(this.state.contacts, contact.name);
 
-      if (existContact) {
-        return alert(`${contact.name} is already in contacts`);
-      }
+    if (existContact) {
+      return alert(`${contact.name} is already in contacts`);
+    }
 
-      return {
-        contacts: [...contacts, contact],
-      };
-    });
+    this.setState(({ contacts }) => ({ contacts: [...contacts, contact] }));
   };
 
   removeContact = (idToCompare) => {
